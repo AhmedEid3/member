@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MemberApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Member App</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/member.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-cloak>
+<br>
+<br>
+<div date-picker="start"></div>
+<div class="container" ng-controller="memberController as member">
+
+    <section class="main-section">
+        <h2>Basic Info</h2>
+
+        <form>
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for="memberName">Member Name:</label>
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <select class="form-control" ng-model="member.info.select" name="memberSelect" ng-change="member.choosePerson()">
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>M/s</option>
+                                    <option>Master</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="memberName"
+                                       name="memberName" ng-model="member.info.memberName" placeholder="Member Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="memberName">Relation Ship:</label>
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <select class="form-control" name="releationSelect" ng-model="member.info.releationSelect">
+                                    <option>S/O</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="relationShip"
+                                       name="relationShip" ng-model="member.info.relationShip" placeholder="Relation Ship">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+
+                        <label for="dob">D.O.B:</label>
+                        <!--<input type="date" class="form-control" id="dob" placeholder="D O B">-->
+                        <div class="input-group">
+
+                            <input type="date" class="form-control" id="dob" name="dob"
+                                   ng-model="member.info.dob" aria-describedby="dob">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="weddingDate">Wedding date:</label>
+                        <div class="input-group">
+
+                            <input type="date" class="form-control" id="weddingDate"
+                                   name="weddingDate" ng-model="member.info.weddingDate" aria-describedby="dob">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+
+                        </div>
+                        <!--<input type="date" class="form-control" id="weddingDate" placeholder="Email">-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="panCard">Pan Card:</label>
+                        <input type="text" class="form-control" id="panCard"
+                               name="panCard" ng-model="member.info.panCard" placeholder="Pan Card">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email"
+                               name="email" ng-model="member.info.email" placeholder="Email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-show="member.master">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="guardianRelation">Guardian Relation:</label>
+                        <input type="text" class="form-control" id="guardianRelation"
+                               name="guardianRelation" ng-model="member.info.guardianRelation">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="guardianName">Guardian Name:</label>
+                        <input type="email" class="form-control" id="guardianName"
+                               name="guardianName" ng-model="member.info.guardianName">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="guardianContact">Guardian Contact:</label>
+                        <input type="email" class="form-control" id="guardianContact"
+                               name="guardianContact" ng-model="member.info.guardianContact">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4" ng-show="member.Mss">
+                    <div class="form-group">
+                        <label for="signdPerson">Signd Person Designation:</label>
+                        <input type="te+" class="form-control" id="signdPerson"
+                               name="signdPerson" ng-model="member.info.signdPerson">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="familyCode">Family Code</label>
+                        <input type="text" class="form-control" id="familyCode"
+                               name="familyCode" ng-model="member.info.familyCode" placeholder="Enter Family Name">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="radio-inline">
+                            <input type="radio" name="is" id="inlineRadio1" value="is New" ng-model="member.info.is"> is New
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="is" id="inlineRadio2" value="is Old" ng-model="member.info.is"> is Old
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="aadharCard">Aadhar Card:</label>
+                        <input type="text" class="form-control" id="aadharCard"
+                               name="aadharCard" ng-model="member.info.aadharCard" placeholder="Aadhar Card">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="isActive"
+                                   name="isActive" ng-model="member.info.isActive" value="Is Active"> Is Active
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </section>
+
+</div>
+
+
+<!--<div ng-include="'member/member.info.template.html'"></div>-->
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="member.module.js"></script>
+<script src="member/member.controller.js"></script>
+
+</body>
+</html>
